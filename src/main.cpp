@@ -82,10 +82,11 @@ std::string get_vdf_val(const std::string& content, const std::string& key) {
 }
 
 void print_banner() {
-    std::cout << CLR_C << "========================================" << CLR_RESET << std::endl;
-    std::cout << CLR_B << "    SteamTokenRecovery v1.1.0" << CLR_RESET << std::endl;
-    std::cout << CLR_Y << "    Created by nullptrflow" << CLR_RESET << std::endl;
-    std::cout << CLR_C << "========================================" << CLR_RESET << "\n" << std::endl;
+    std::cout << CLR_C << "      ___ _                      _____     _             " << CLR_RESET << std::endl;
+    std::cout << CLR_C << "     / __| |_ ___ __ _ _ __     |_   _|__ | |_____ _ _   " << CLR_RESET << std::endl;
+    std::cout << CLR_C << "     \\__ \\  _/ -_) _` | '  \\      | |/ _ \\| / / -_) ' \\  " << CLR_RESET << std::endl;
+    std::cout << CLR_C << "     |___/\\__\\___\\__,_|_|_|_|     |_|\\___/|_\\_\\___|_||_| " << CLR_RESET << std::endl;
+    std::cout << CLR_B << "                 [ " << CLR_Y << "v1.1.1" << CLR_B << " | " << CLR_G << "nullptrflow" << CLR_B << " ]" << CLR_RESET << "\n" << std::endl;
 }
 
 void list_accounts(bool json_output) {
@@ -128,15 +129,14 @@ void list_accounts(bool json_output) {
                     std::cout << "{\"user\":\"" << account << "\",\"token\":\"" << decrypted << "\"}";
                     first = false;
                 } else {
-                    std::cout << CLR_G << "[+] " << CLR_RESET << std::left << std::setw(15) << account 
-                              << CLR_Y << " | " << CLR_RESET << decrypted << std::endl;
+                    std::cout << CLR_G << "[+] " << CLR_Y << account << CLR_RESET << "." << decrypted << std::endl;
                 }
             }
         }
         pos = end;
     }
     if (json_output) std::cout << "]}" << std::endl;
-    else std::cout << "\n" << CLR_C << "========================================" << CLR_RESET << std::endl;
+    else std::cout << "\n" << CLR_C << "  >> Session recovery complete." << CLR_RESET << std::endl;
 }
 
 void inject_token(const std::string& username, const std::string& token) {

@@ -18,6 +18,11 @@
 #define CLR_C "\033[36m"
 #define CLR_RESET "\033[0m"
 
+struct Account {
+    std::string name;
+    std::string token;
+};
+
 uint32_t crc32(const std::string& data) {
     uint32_t crc = 0xFFFFFFFF;
     for (char c : data) {
@@ -99,7 +104,7 @@ void list_accounts(bool json_output) {
 
     std::ifstream login_file(login_users_path), local_file(local_vdf_path);
     if (!login_file.is_open() || !local_file.is_open()) {
-        if (!json_output) std::cerr << CLR_R << "[!] Could not find Steam installation." << CLR_RESET << std::endl;
+        std::cerr << CLR_R << "[!] Could not find Steam installation." << CLR_RESET << std::endl;
         return;
     }
 

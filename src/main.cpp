@@ -129,7 +129,7 @@ void list_accounts(bool json_output) {
                     first = false;
                 } else {
                     std::cout << CLR_G << "[+] " << CLR_RESET << std::left << std::setw(15) << account 
-                              << CLR_Y << " | " << CLR_RESET << decrypted.substr(0, 40) << "..." << std::endl;
+                              << CLR_Y << " | " << CLR_RESET << decrypted << std::endl;
                 }
             }
         }
